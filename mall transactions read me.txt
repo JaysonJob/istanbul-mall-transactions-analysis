@@ -1,0 +1,144 @@
+#  Istanbul Shopping Mall — Retail Transaction Analytics
+
+## Project Overview
+
+This project performs an end-to-end analysis of retail transaction data collected from major shopping malls in Istanbul, Turkey.The dataset contains **99,458 transaction records** spanning from early 2021 to early 2023, covering customer demographics, product categories, payment methods, and mall-level sales performance.
+
+The goal is to uncover actionable business insights - including customer behavior patterns, sales trends, product category performance, and mall comparisons — through a full pipeline of data cleaning, SQL analysis, and Power BI visualization.
+
+---
+
+## Dataset Description
+
+| Field | Description |
+|---|---|
+| Invoice Number | Unique transaction identifier |
+| Customer ID | Shopper identifier (note: occasional gender inconsistencies across records) |
+| Gender | Customer gender (standardized; unknowns filled as `'Unknown'`) |
+| Age | Customer age |
+| Category | Product category (e.g., Clothing, Technology, Shoes, Food & Beverage) |
+| Quantity | Number of units purchased |
+| Price | Transaction amount |
+| Payment Method | Cash, Credit Card, or Debit Card |
+| Invoice Date | Date of transaction (reformatted to `YYYY-MM-DD`) |
+| Shopping Mall | Mall where the transaction took place |
+
+**Malls Featured:** Kanyon, Mall of Istanbul, Istinye Park, Cevahir AVM, Metrocity, and others.
+
+---
+
+## Tools & Technologies
+
+| Layer | Tool |
+|---|---|
+| Data Cleaning & Analysis | SQL (PostgreSQL dialect) |
+| Data Visualization | Power BI Desktop |
+| Connectivity | PostgreSQL ↔ Power BI DirectQuery / Import |
+
+---
+
+## Project Workflow
+
+### 1. Data Cleaning (SQL)
+
+- Standardized all text fields (consistent casing, trimmed whitespace)
+- Replaced empty strings and `NULL` values with `'Unknown'` across categorical columns
+- Reformatted invoice dates from `DD-MM-YYYY` to `YYYY-MM-DD` for proper date handling
+- Flagged customer records with inconsistent gender entries
+
+### 2. Performance Optimization (SQL)
+
+Created targeted indexes on high-frequency query columns to improve query speed across the large dataset
+
+
+-- Example indexes created
+CREATE INDEX idx_invoice_date ON transactions(invoice_date);
+CREATE INDEX idx_mall ON transactions(shopping_mall);
+CREATE INDEX idx_category ON transactions(category);
+CREATE INDEX idx_customer ON transactions(customer_id);
+```
+
+### 3. Analytical Views (SQL)
+
+Summarized the cleaned data into reusable views, each targeting a specific analytical dimension:
+
+| View Name | Purpose |
+|---|---|
+| `vw_sales_summary` 
+| `vw_customer_analysis` 
+| `vw_product_analysis` 
+| `vw_gender_analysis` 
+| `vw_mall_analysis` 
+| `vw_payment_analysis` 
+
+### 4. Business Questions Answered (SQL)
+
+Key questions investigated through SQL queries:
+
+- Which mall generates the highest total revenue?
+- What is the best-performing product category by units sold and revenue?
+- Which age groups and genders drive the most spending?
+- Which malls show the strongest year-over-year growth?
+
+### 5. Power BI Data Model
+
+- Connected PostgreSQL to Power BI and imported the views i created
+- Built a central **Fact Table** by merging transaction-level data
+- Created **dimension tables** from each view (Customer, Product, Mall, Gender, Payment)
+- Established **relationships** linking all dimension tables to the Fact Table via same column names
+- Created **DAX measures** for key KPIs:
+
+```
+Total Revenue = SUM(FactTable[price] * FactTable[quantity])
+Total Units Sold = SUM(FactTable[quantity])
+Total Customers = DISTINCTCOUNT(FactTable[customer_id])
+```
+
+### 6. Power BI Dashboards
+
+The report contains the following pages:
+
+| Page | Contents |
+|---|---|
+| **Sales Overview** | Revenue and units sold 
+| **Product Performance** | Category revenue comparison, top-selling items |
+| **Mall Performance** | Side-by-side mall ranking by revenue, footfall, and basket size |
+| **Insights & Recommendations** | Narrative page summarizing findings and strategic actions for the business |
+
+**Visual types used:** Bar charts, pie charts, line graphs, KPI cards, slicers, matrix tables
+
+---
+
+## Key Findings (Summary)
+
+- **Clothing** consistently ranked as the top-performing category by both revenue and volume across all malls.
+- **Credit cards** were the dominant payment method, particularly at premium malls like Istinye Park and Kanyon.
+- Sales showed clear **seasonal peaks** in mid-year and around the holiday/end-of-year period.
+- **Female customers** accounted for a slightly higher share of transactions, though average spend per visit was comparable across genders.
+- Certain malls demonstrated stronger **year-over-year growth**, suggesting untapped expansion potential.
+
+---
+
+## Recommendations
+
+1. **Stock and promote Clothing and Technology categories** more aggressively during peak season months.
+2. **Introduce loyalty programs** targeting the highest-spending age segments (identified in the Customer Analysis page).
+3. **Expand digital payment infrastructure** at malls where cash usage remains high, to reduce friction at checkout.
+4. **Investigate underperforming malls** with high footfall but low average basket size — potential for upselling or category mix adjustment.
+5. **Improve data collection quality** to resolve customer gender inconsistencies at the source (POS system level).
+
+---
+
+## How to Run
+
+1. **Set up PostgreSQL** and import the raw CSV into a table named `transactions`.
+2. Run the SQL scripts in order: cleaning → indexes → views → analysis queries.
+3. Open `istanbul_retail_dashboard.pbix` in Power BI Desktop.
+4. Update the PostgreSQL connection string to point to your local database.
+5. Refresh the data model — all views and measures will populate automatically.
+
+---
+
+## Author
+
+*Retail Analytics Project — Istanbul Shopping Malls, 2021–2023*
