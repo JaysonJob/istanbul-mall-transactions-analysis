@@ -26,6 +26,7 @@ Sales Overview
 Customer Analysis
 Product Performance
 Mall Performance
+![alt text](https://github.com/JaysonJob/istanbul-mall-transactions-analysis/blob/main/Screenshot%202026-06-03%20132000.png?raw=true)
 Payment Methods
 Insights & Recommendations
 
