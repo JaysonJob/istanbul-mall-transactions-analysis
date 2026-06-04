@@ -1,4 +1,11 @@
 # istanbul-mall-transactions-analysis
+The Istanbul shopping mall dataset came from Kaggle,created and uploaded by user Mehmet Tahir Aslan.
+It is officially called the "Customer Shopping Dataset - Retail Sales Data" and contains real transaction data from 10 different malls in Istanbul between 2021–2023.
+I then downloaded the file as an excel file.
+
+Direct link to the dataset:
+🔗 https://www.kaggle.com/datasets/mehmettahiraslan/customer-shopping-dataset
+
 End-to-end analysis of 99,458 rows retail transactions from major Istanbul shopping malls (2021–2023), built with PostgreSQL and Power BI.
 
 What's Inside
