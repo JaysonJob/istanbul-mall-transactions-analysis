@@ -36,21 +36,21 @@ Mall Performance
 ![alt text](https://github.com/JaysonJob/istanbul-mall-transactions-analysis/blob/main/Screenshot%202026-06-03%20132000.png?raw=true)
 Payment Methods
 Insights & Recommendations
-##Key Findings
-###1.Customer Demographics
+  KEY FINDINGS
+1.Customer Demographics
 Male customers generate 59.72% of revenue ($150.21M) vs 40.28% for females ($101.3M) - the gap suggests males are buying higher-value items, likely Technology
 The 55+ age group spends the most ($71.77M),nearly double the 18–24 group ($33.45M) - this network skews older and premium
 The 18–24 segment is significantly underleveraged at the lowest spend across all age groups
 
-###2.Payment Behaviour
+2.Payment Behaviour
 79.72% of transactions are cashless (credit card 44.6%, debit card 35.12%) - cash is largely irrelevant in this market
 
-###3.product & Mall Performance
+3.product & Mall Performance
 Technology alone generates $100M, nearly 40% of total revenue - one category is carrying the network, which is a concentration risk
 Viaport Outlet leads in units sold (45K) but high volume doesn't equal high revenue - likely driven by lower price-point products
 Total revenue is $251.51M across 99K customers,averaging $2,540 per customer
 
-##Recommendations
+  RECOMENDATIONS
 The 55+ group is already your top spender - focus on premium product availability,not loyalty programs
 Reduce Technology dependence by cross-promoting Clothing and Shoes to existing high-value Technology buyers
 Investigate the female revenue gap before acting - understand whether it's fewer customers or lower spend per visit, as each requires a different fix
