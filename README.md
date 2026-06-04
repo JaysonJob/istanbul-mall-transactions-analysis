@@ -29,7 +29,8 @@ PostgreSQL · SQL · Power BI · DAX
 3. Connected PostgreSQL to Power BI and built a star schema (fact + dimension tables)
 4. Designed dashboards with KPI cards, bar charts, pie charts, and trend lines
 5. Wrote an executive summary and recommendations page
-
+##payment method analysis using sql
+![alt text](https://github.com/JaysonJob/istanbul-mall-transactions-analysis/blob/7b12df38d37501a1a61e65c33c429cfe0f970068/Screenshot%202026-06-03%20131346.png)
 ## Dashboards
 ![alt text](https://github.com/JaysonJob/istanbul-mall-transactions-analysis/blob/e740afb5e03268464d6961d8fbd72d812ba860d3/Screenshot%202026-06-03%20132000.png)
 ## Ececutive summary
