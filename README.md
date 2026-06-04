@@ -31,7 +31,8 @@ PostgreSQL · SQL · Power BI · DAX
 5. Wrote an executive summary and recommendations page
 
 ## Dashboards
-
+## Ececutive summary
+![alt text](https://github.com/JaysonJob/istanbul-mall-transactions-analysis/blob/163260280bc3451d2c0274f600ed4d4d2748b159/Screenshot%202026-06-03%20132111.png)
 - Executive Summary
 - Sales Overview
 - Customer Analysis
