@@ -52,7 +52,7 @@ from customer_shopping_data
 group by invoice_date;
 --- converting to the right formar (from dd-mm-yyy to yyyy-mm-dd)
 update customer_shopping_data
-set invoice_date = to_char(to_date(invoice_date, 'dd-mm-yyy'),'yyyy-mm-dd');
+set invoice_date = to_char(to_date(invoice_date, 'dd-mm-yyyy'),'yyyy-mm-dd');
 
 -- part 5-- category
 --a.standardizing the letters
@@ -65,7 +65,7 @@ group by category;
 
 update customer_shopping_data 
 set category = 'unknown' 
-where category is null or gender = '';
+where category is null or category = '';
 
 update customer_shopping_data
 set category = trim(initcap(category))
@@ -162,10 +162,10 @@ where cs.rnk <= 3
 order by cs.shopping_mall, cs.rnk;
 
 -- Add indexes to speed up queries
-create index idex_mall on customer_shopping_data(shopping_mall);
-create index idex_category on customer_shopping_data(category);
-create index idex_customer on customer_shopping_data(customer_id);
-create index idex_date on customer_shopping_data(invoice_date);
+create idx idx_mall on customer_shopping_data(shopping_mall);
+create idx idx_category on customer_shopping_data(category);
+create idx idx_customer on customer_shopping_data(customer_id);
+create idx idx_date on customer_shopping_data(invoice_date);
 
 --2.comparing each mall to average transactrions
 select csd.shopping_mall, csd.category, 
