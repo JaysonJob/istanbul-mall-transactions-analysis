@@ -38,12 +38,42 @@ PostgreSQL · SQL · Power BI · DAX
 | **Categories** | Clothing, Technology, Shoes, Food & Beverage + more |
 
 ## Workflow
-1. **Clean the base data** — *"Is the raw data usable as-is?"* Standardised text fields (gender, category, payment method), fixed date formats, replaced blank/null IDs with `'unknown'`, and checked for duplicate invoices.
+1. **Clean the base data** —  Standardised text fields (gender, category, payment method), fixed date formats, replaced blank/null IDs with `'unknown'`, and checked for duplicate invoices.
 2. **Index & build views** — *"How do we make repeated business questions fast to answer?"* Added indexes on mall, category, customer, and date, then created reusable views (sales fact, customer summary, mall performance, payment analysis, gender analysis, KPIs) so Power BI queries stay fast.
 3. **Connect to Power BI & model** — *"How do the cleaned tables become a report?"* Connected PostgreSQL to Power BI and built a star schema (fact + dimension tables).
 4. **Design the dashboards** — *"What should decision-makers see at a glance?"* Built KPI cards, bar charts, pie charts, and trend lines for sales, customers, products, malls, and payment methods.
 5. **Summarise findings** — *"So what?"* Wrote an executive summary and recommendations page translating the numbers into action.
+## Key Findings
 
+### 1. Customer Demographics
+- Male customers generate 59.72% of revenue ($150.21M) vs 40.28% for females ($101.3M) - the gap
+suggests males are buying higher-value items, likely Technology
+- The 55+ age group spends the most ($71.77M), nearly double the 18–24 group ($33.45M) - this
+network skews older and premium
+- The 18–24 segment is significantly underleveraged at the lowest spend across all age groups
+
+### 2. Payment Behaviour
+- 79.72% of transactions are cashless (credit card 44.6%, debit card 35.12%) - cash is largely
+irrelevant in this market
+
+### 3. Product & Mall Performance
+- Technology alone generates $100M, nearly 40% of total revenue - one category is carrying the
+network, which is a concentration risk
+- Viaport Outlet leads in units sold (45K) but high volume doesn't equal high revenue - likely
+driven by lower price-point products
+- Total revenue is $251.51M across 99K customers, averaging $2,540 per customer
+
+## Recommendations
+
+- The 55+ group is already your top spender - focus on premium product availability, not loyalty programs
+- Reduce Technology dependence by cross-promoting Clothing and Shoes to existing high-value
+Technology buyers
+- Investigate the female revenue gap before acting - understand whether it's fewer customers or
+lower spend per visit, as each requires a different fix
+- With 80% cashless adoption already achieved, focus on reducing card transaction fees rather than
+further cashless incentives
+- Investigate Viaport Outlet's revenue per customer - high footfall with low average spend suggests
+a product mix problem
 ## Business Questions & Queries
 Each query below started as a hypothetical business question. The SQL answers it with real data — the same question/answer pairs are also included as comments directly above each query in `customer_shopping_data.sql`.
 
@@ -62,10 +92,10 @@ Each query below started as a hypothetical business question. The SQL answers it
 | 9 | Are individual transactions above or below their mall's average? | Joins each transaction against its mall's average spend to flag over/under-performing sales | Transactions vs. Mall Average |
 
 ## Dashboards
-Each dashboard below is described first by what it's meant to answer, then by what the data actually shows (fill in the second part once you've reviewed the numbers in your published report — a template summary is included so you can see the format to follow).
+Each dashboard below is described first by what it's meant to answer, then by what the data actually shows. A template summary is included so you can see the format to follow
 
 ### 1. Executive Summary — *"How is the business doing overall?"*
-![Executive summary dashboard](images/executive-summary.png)
+![alt text](https://github.com/JaysonJob/istanbul-mall-transactions-analysis/blob/163260280bc3451d2c0274f600ed4d4d2748b159/Screenshot%202026-06-03%20132111.png)
 > Summary: *[e.g. Total revenue reached $X across Y transactions, with an average order value of $Z. Revenue was fairly stable/grew/declined across the two-year window, with [month] consistently the strongest period.]*
 
 ### 2. Sales Overview — *"Where and when is revenue being generated?"*
@@ -85,7 +115,7 @@ Each dashboard below is described first by what it's meant to answer, then by wh
 > Summary: *[e.g. [Mall] leads on both transaction volume and revenue per customer, while [mall] has high foot traffic but a lower average basket size.]*
 
 ### 6. Payment Methods — *"How are customers paying, and does it affect spend?"*
-![Payment methods dashboard](images/payment-methods.png)
+![alt text](https://github.com/JaysonJob/istanbul-mall-transactions-analysis/blob/7b12df38d37501a1a61e65c33c429cfe0f970068/Screenshot%202026-06-03%20131346.png)
 > Summary: *[e.g. [Payment method] is the most-used option, but [payment method] transactions carry a higher average value, hinting at a different customer segment.]*
 
 ### 7. Insights & Recommendations
