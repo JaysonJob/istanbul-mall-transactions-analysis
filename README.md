@@ -47,14 +47,14 @@ PostgreSQL · SQL · Power BI · DAX
 ## Dashboards & SQL Analysis
 
 ### Executive Summary
-![Executive Summary dashboard](images/executive-summary.png)
+![alt text](https://github.com/JaysonJob/istanbul-mall-transactions-analysis/blob/163260280bc3451d2c0274f600ed4d4d2748b159/Screenshot%202026-06-03%20132111.png)
 
 The executive summary page consolidates the full analysis into a single view: total revenue, customer
 count, average spend per customer, and the top-performing category and mall — giving a business
 stakeholder the headline numbers before drilling into the detail pages.
 
 ### Dashboard Overview
-![Sales and customer dashboard](images/dashboard-overview.png)
+![alt text](https://github.com/JaysonJob/istanbul-mall-transactions-analysis/blob/e740afb5e03268464d6961d8fbd72d812ba860d3/Screenshot%202026-06-03%20132000.png)
 
 This dashboard explores the spending habits of customers across gender, age group, and mall. Females
 are the larger customer base above age 30, while customers aged 50+ contribute the most revenue overall,
@@ -83,7 +83,7 @@ of total transactions.
 **Answer:** 79.72% of transactions are cashless (credit card 44.6%, debit card 35.12%), meaning cash
 handling costs could largely be phased out with minimal disruption to sales.
 
-![Payment Method Breakdown](images/payment-method-analysis.png)
+![alt text](https://github.com/JaysonJob/istanbul-mall-transactions-analysis/blob/7b12df38d37501a1a61e65c33c429cfe0f970068/Screenshot%202026-06-03%20131346.png)
 
 > For the full list of business questions answered in SQL — including age-group spend, category
 > revenue share, and mall-level performance — see the comments above each query in
