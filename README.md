@@ -34,7 +34,7 @@ PostgreSQL · SQL · Power BI · DAX
    psql -d istanbul_mall_sales -f customer_shopping_data.sql
 ```
 3. Open the `.pbix` file in Power BI Desktop:
-   - **Offline:** Double-click the `.pbix` file — it opens directly in Power BI Desktop with the data model and visuals intact. No sign-in is required to view or explore the dashboards.
+   - **Offline:** Double-click the `.pbix` file - it opens directly in Power BI Desktop with the data model and visuals intact. No sign-in is required to view or explore the dashboards.
    - **Online:** To refresh the data live from PostgreSQL, open the file in Power BI Desktop, go to **Home > Transform data > Data source settings**, and update the PostgreSQL server/database credentials to point to your own local database, then click **Refresh**.
 
 ## Workflow
@@ -50,7 +50,7 @@ PostgreSQL · SQL · Power BI · DAX
 ![alt text](https://github.com/JaysonJob/istanbul-mall-transactions-analysis/blob/163260280bc3451d2c0274f600ed4d4d2748b159/Screenshot%202026-06-03%20132111.png)
 
 The executive summary page consolidates the full analysis into a single view: total revenue, customer
-count, average spend per customer, and the top-performing category and mall — giving a business
+count, average spend per customer, and the top-performing category and mall - giving a business
 stakeholder the headline numbers before drilling into the detail pages.
 
 ### Dashboard Overview
@@ -71,7 +71,7 @@ count, and average spend per transaction.
 despite Power BI showing females as the larger customer base above age 30, indicating males are buying
 fewer but higher-value items (likely Technology).
 
-![Spending Summary by Gender](images/gender-analysis.png)
+
 
 ### Query: Payment Method Breakdown
 **Question:** As the company considers reducing cash-handling costs, they want to know how many
@@ -85,8 +85,8 @@ handling costs could largely be phased out with minimal disruption to sales.
 
 ![alt text](https://github.com/JaysonJob/istanbul-mall-transactions-analysis/blob/7b12df38d37501a1a61e65c33c429cfe0f970068/Screenshot%202026-06-03%20131346.png)
 
-> For the full list of business questions answered in SQL — including age-group spend, category
-> revenue share, and mall-level performance — see the comments above each query in
+> For the full list of business questions answered in SQL - including age-group spend, category
+> revenue share, and mall-level performance - see the comments above each query in
 > [`customer_shopping_data.sql`](customer_shopping_data.sql), where each query block is documented
 > with its business question and the takeaway from its result.
 
