@@ -18,6 +18,25 @@ as an excel file.
 ## Tech Stack
 PostgreSQL · SQL · Power BI · DAX
 
+## Setup / Installation
+
+### 1. Prerequisites
+- PostgreSQL (v13 or later recommended)
+- Power BI Desktop (works offline once the .pbix file is opened; no Power BI service account required)
+
+### 2. Installation Steps
+1. Create a new database in PostgreSQL, e.g.:
+```sql
+   CREATE DATABASE istanbul_mall_sales;
+```
+2. Import the dataset into the database:
+```bash
+   psql -d istanbul_mall_sales -f customer_shopping_data.sql
+```
+3. Open the `.pbix` file in Power BI Desktop:
+   - **Offline:** Double-click the `.pbix` file — it opens directly in Power BI Desktop with the data model and visuals intact. No sign-in is required to view or explore the dashboards.
+   - **Online:** To refresh the data live from PostgreSQL, open the file in Power BI Desktop, go to **Home > Transform data > Data source settings**, and update the PostgreSQL server/database credentials to point to your own local database, then click **Refresh**.
+
 ## Workflow
 1. Cleaned and standardised raw data in PostgreSQL (nulls, date formats, trimming)
 2. Created indexes for query performance and views for each analytical dimension
@@ -25,26 +44,54 @@ PostgreSQL · SQL · Power BI · DAX
 4. Designed dashboards with KPI cards, bar charts, pie charts, and trend lines
 5. Wrote an executive summary and recommendations page
 
-## Payment Method Analysis Using SQL
-![alt text](https://github.com/JaysonJob/istanbul-mall-transactions-analysis/blob/7b12df38d37501a1a61e65c33c429cfe0f970068/Screenshot%202026-06-03%20131346.png)
+## Dashboards & SQL Analysis
 
-## Gender Analysis Using SQL
-![alt text](https://github.com/JaysonJob/istanbul-mall-transactions-analysis/blob/71e30225712fd7248b0c171f31a5199a249debc3/Screenshot%202026-06-03%20131512.png)
+### Executive Summary
+![Executive Summary dashboard](images/executive-summary.png)
 
-## Dashboards
-![alt text](https://github.com/JaysonJob/istanbul-mall-transactions-analysis/blob/e740afb5e03268464d6961d8fbd72d812ba860d3/Screenshot%202026-06-03%20132000.png)
+The executive summary page consolidates the full analysis into a single view: total revenue, customer
+count, average spend per customer, and the top-performing category and mall — giving a business
+stakeholder the headline numbers before drilling into the detail pages.
 
-## Executive Summary
-![alt text](https://github.com/JaysonJob/istanbul-mall-transactions-analysis/blob/163260280bc3451d2c0274f600ed4d4d2748b159/Screenshot%202026-06-03%20132111.png)
-- Executive Summary
-- Sales Overview
-- Customer Analysis
-- Product Performance
-- Mall Performance
-- Payment Methods
-- Insights & Recommendations
+### Dashboard Overview
+![Sales and customer dashboard](images/dashboard-overview.png)
+
+This dashboard explores the spending habits of customers across gender, age group, and mall. Females
+are the larger customer base above age 30, while customers aged 50+ contribute the most revenue overall,
+suggesting this age group has greater disposable income to spend per visit.
+
+### Query: Spending Summary by Gender
+**Question:** The company wants to know whether one gender is driving a disproportionate share of
+revenue, and whether that's due to more customers or higher spend per customer.
+
+**Query:** Groups transactions by gender and calculates total revenue, revenue share (%), transaction
+count, and average spend per transaction.
+
+**Answer:** Male customers generate 59.72% of revenue ($150.21M) vs 40.28% for females ($101.3M) —
+despite Power BI showing females as the larger customer base above age 30, indicating males are buying
+fewer but higher-value items (likely Technology).
+
+![Spending Summary by Gender](images/gender-analysis.png)
+
+### Query: Payment Method Breakdown
+**Question:** As the company considers reducing cash-handling costs, they want to know how many
+transactions are already cashless, and which cashless method dominates.
+
+**Query:** Groups transactions by payment method and calculates transaction count and percentage share
+of total transactions.
+
+**Answer:** 79.72% of transactions are cashless (credit card 44.6%, debit card 35.12%), meaning cash
+handling costs could largely be phased out with minimal disruption to sales.
+
+![Payment Method Breakdown](images/payment-method-analysis.png)
+
+> For the full list of business questions answered in SQL — including age-group spend, category
+> revenue share, and mall-level performance — see the comments above each query in
+> [`customer_shopping_data.sql`](customer_shopping_data.sql), where each query block is documented
+> with its business question and the takeaway from its result.
 
 ## Key Findings
+
 ### 1. Customer Demographics
 - Male customers generate 59.72% of revenue ($150.21M) vs 40.28% for females ($101.3M) - the gap
 suggests males are buying higher-value items, likely Technology
