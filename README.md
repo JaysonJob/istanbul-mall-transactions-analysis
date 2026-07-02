@@ -99,7 +99,7 @@ Each dashboard below is described first by what it's meant to answer, then by wh
 > Summary: *[e.g. Total revenue reached $X across Y transactions, with an average order value of $Z. Revenue was fairly stable/grew/declined across the two-year window, with [month] consistently the strongest period.]*
 
 ### 2. Sales Overview — *"Where and when is revenue being generated?"*
-![Sales overview dashboard](images/sales-overview.png)
+![alt text](https://github.com/JaysonJob/istanbul-mall-transactions-analysis/blob/e740afb5e03268464d6961d8fbd72d812ba860d3/Screenshot%202026-06-03%20132000.png)
 > Summary: *[e.g. [Mall name] generates the largest share of revenue, driven mainly by [category]. Sales peak around [month/season], suggesting [seasonal driver].]*
 
 ### 3. Customer Analysis — *"Who is actually buying, and who should we target?"*
